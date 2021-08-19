@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>MDX bundler with Next.JS</title>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link href="https://unpkg.com/prism-theme-night-owl@1.4.0/build/style.css" rel="stylesheet"/>
+  <script type="text/javascript" src="../javaScript/style.js" async="async"></script>
+  <script type="text/javascript" src="../javaScript/nav.js"></script>
 </head>
 <body>
 <div id="__next">
@@ -88,15 +91,9 @@
       <main>
         <div class="relative flex justify-between mt-12 mb-12 xl:flex-row-reverse xl:-mr-48">
           <aside class="sticky hidden h-screen max-w-sm mt-8 ml-8 top-16 xl:block">
-            <nav class="toc text-fore-subtle">
-              <h2 class="mb-2 font-normal text-accent tracking-widestest">TABLE OF CONTENTS</h2>
-              <div><a id="link" href="#part0" class="block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent text-purple-700 dark:text-yellow-700">Definition of markdown</a></div>
-              <div><a id="link1" href="#part1" class="block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent">Why we need MDX</a></div>
-              <div><a id="link2" href="#part2" class="block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent">Benefits of mdx-bundler</a></div>
-              <div><a id="link3" href="#part3" class="block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent ml-3">bundleMDX</a></div>
-              <div><a id="link4" href="#part4" class="block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent ml-3">getMDXComponent</a></div>
-              <div><a id="link5" href="#part5" class="block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent">Conclusion</a></div>
+            <nav id="navbanner" class="toc text-fore-subtle">
             </nav>
+
           </aside>
           <article class="max-w-3xl min-w-0 text-base lg:text-lg text-fore-subtle">
             <header class="mb-8">
@@ -108,8 +105,8 @@
                 <span class="font-bold">4 min read</span>
                 <span> • </span>
                 <span class="italic">Last updated: <time>2021-08-03</time></span>
-                <a class="text-purple-500 transition-colors cursor-pointer ont-medium dark:text-yellow-500 hover:text-purple-700 dark:hover:text-yellow-700" href="/tags/markdown">&nbsp; #<!-- -->markdown</a>
-                <a class="text-purple-500 transition-colors cursor-pointer ont-medium dark:text-yellow-500 hover:text-purple-700 dark:hover:text-yellow-700" href="/tags/nextjs">&nbsp; #<!-- -->nextjs</a>
+                <a class="text-purple-500 transition-colors cursor-pointer ont-medium dark:text-yellow-500 hover:textPurple700 dark:hover:text-yellow-700" href="/tags/markdown">&nbsp; #<!-- -->markdown</a>
+                <a class="text-purple-500 transition-colors cursor-pointer ont-medium dark:text-yellow-500 hover:textPurple700 dark:hover:text-yellow-700" href="/tags/nextjs">&nbsp; #<!-- -->nextjs</a>
               </div>
               <div class="article-image">
                 <div class="image-box">
@@ -118,19 +115,19 @@
                 <img class="image-source" alt="blog header" src="./images/use-mdx-bundler-with-next-js.png">
               </div>
             </header>
+
             <div class="max-w-3xl mb-8 prose dark:prose-dark">
               <p>
-                For my personal blog, I have to choose a MDX file in order to display rich content or embed custom react components in markdown. Before going further how to use <strong>MDX with Next.JS</strong>, I would like to explain why I select MDX and <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a> to compile my markdown files.
+                For my personal blog, I have to choose a MDX file in order to display rich content or embed custom react components in markdown. Before going further how to use <strong>MDX with Next.JS</strong>, I would like to explain why I select MDX and <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a> to compile my markdown files.
               </p>
               <p>
-                The source code for this tutorial can be found on <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">GitHub</a>.
+                The source code for this tutorial can be found on <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">GitHub</a>.
               </p>
-              <a id="part0"></a>
-              <h2>
+              <h2 id="definition-of-markdown">
                 Definition of markdown
               </h2>
               <p>
-                As per <strong>John Gruber</strong>, the original creator of <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">Markdown:</a>
+                As per <strong>John Gruber</strong>, the original creator of <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">Markdown:</a>
               </p>
               <blockquote>
                 <p>Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)</p>
@@ -139,17 +136,15 @@
                 Here's what Markdown looks like:
               </p>
               <p>
-              <pre>
-                Hello there! My name is **praveen yadav**.
-                Here's my favorite programming language list:
+              <pre class="language-md">
+<code class="language-md">Hello there! My name is <span class="token bold"><span class="token punctuation">**</span><span class="token content">praveen yadav</span><span class="token punctuation">**</span></span>
+Here's my favorite programming language list:
 
-                - Rust
-                - Golang
-                - Node.js
-              </pre>
+<span class="token list punctuation">-</span> Rust
+<span class="token list punctuation">-</span> Golang
+<span class="token list punctuation">-</span> Node.js</code></pre>
               </p>
-              <a id="part1"></a>
-              <h2>
+              <h2 id="why-we-need-mdx">
                 Why we need MDX
               </h2>
               <p>
@@ -180,45 +175,43 @@
                 In order to display content in the browser, you need to parse the markdown file and compile it to HTML. On this blog, I am using
               </p>
               <ol class="mb-8 ml-10">
-                <li><a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">gray-matter</a> to parse my markdown files and</li>
-                <li><a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a> to compile MDX/TSX strings and give you back a component which you can render in the browser.</li>
+                <li><a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">gray-matter</a> to parse my markdown files and</li>
+                <li><a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a> to compile MDX/TSX strings and give you back a component which you can render in the browser.</li>
               </ol>
               <p>
-                <strong>mdx-bundler</strong> uses <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">esbuild</a>, so it's VERY fast and supports TypeScript files (for the dependencies of your MDX files). It also uses <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">xdm</a> which is a more modern and powerful MDX compiler with no extra runtime requirements
+                <strong>mdx-bundler</strong> uses <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">esbuild</a>, so it's VERY fast and supports TypeScript files (for the dependencies of your MDX files). It also uses <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">xdm</a> which is a more modern and powerful MDX compiler with no extra runtime requirements
               </p>
-              <a id="part2"></a>
-              <h2>
+              <h2 id="benefits-of-mdx-bundler">
                 Benefits of mdx-bundler
               </h2>
               <p>
                 These are popular MDX compiler that are available on the market right now -
               </p>
               <ol class="mb-8 ml-10">
-                <li>Official MDX support by Next.js <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">Next.js + MDX</a></li>
-                <li>Hashicorp's <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">next-mdx-remote</a></li>
-                <li>Kent C Dodds's <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a></li>
+                <li>Official MDX support by Next.js <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">Next.js + MDX</a></li>
+                <li>Hashicorp's <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">next-mdx-remote</a></li>
+                <li>Kent C Dodds's <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a></li>
               </ol>
               <blockquote>
-                <p>If you have a lot of files that all import and use different components, you may benefit from using mdx-bundler, as <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">next-mdx-remote</a> currently only allows components to be imported and made available across all pages.</p>
+                <p>If you have a lot of files that all import and use different components, you may benefit from using mdx-bundler, as <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">next-mdx-remote</a> currently only allows components to be imported and made available across all pages.</p>
               </blockquote>
               <p>
-                I decided to use <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a> because it has a very <strong>good performance</strong> and <strong>great features</strong> like
+                I decided to use <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">mdx-bundler</a> because it has a very <strong>good performance</strong> and <strong>great features</strong> like
               </p>
               <ol class="mb-8 ml-10">
                 <li><strong>Components import within a mdx file</strong></li>
                 <li>Frontmatter supports</li>
                 <li>Ability to use frontmatter in mdx file</li>
-                <li>Bundle image within a mdx file using <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">remark-mdx-images</a></li>
+                <li>Bundle image within a mdx file using <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">remark-mdx-images</a></li>
               </ol>
               <p>
                 Now you know why you pick mdx-bundler for your MDX contents, let's see how to use it with Next.JS.
               </p>
-              <a id="part3"></a>
-              <h3>
+              <h3 id="bundlemdx">
                 bundleMDX
               </h3>
               <p>
-                Next.js support two form of <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">pre-rendering: Static Generation</a> and <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">Server-side Rendering.</a> Here, we are using Static Generation to generate HTML files at build time. We will be calling <strong><em>bundleMDX</em></strong> which takes MDX source as string to compile MDX files to HTML.
+                Next.js support two form of <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">pre-rendering: Static Generation</a> and <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">Server-side Rendering.</a> Here, we are using Static Generation to generate HTML files at build time. We will be calling <strong><em>bundleMDX</em></strong> which takes MDX source as string to compile MDX files to HTML.
               </p>
               <p>
               <pre>
@@ -270,8 +263,7 @@
                   );
                 }
               </pre>
-              <a id="part4"></a>
-              <h3>getMDXComponent</h3>
+              <h3 id="getmdxcomponent">getMDXComponent</h3>
               <p>
                 MDX Bundler supplies getMDXComponent function to turn the string of compiled code into something you can mount.
               </p>
@@ -292,16 +284,15 @@
                 };
               </pre>
               </p>
-              <a id="part5"></a>
               <a></a>
-              <h2>
+              <h2 id="conclusion">
                 Conclusion
               </h2>
               <p>
-                I hope this article will help you to understand how to use MDX with Next.JS using mdx-bundler. You can see a working demo at <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">https://use-mdx-bundler-with-next-js</a> and view the code at <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">GitHub</a>.
+                I hope this article will help you to understand how to use MDX with Next.JS using mdx-bundler. You can see a working demo at <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">https://use-mdx-bundler-with-next-js</a> and view the code at <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">GitHub</a>.
               </p>
               <p>
-                If you have found this useful, please consider recommending and sharing it with other fellow developers and if you have any questions or suggestions, feel free to add a comment or contact me on <a class="font-medium transition-colors hover:text-purple-700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">twitter.</a>
+                If you have found this useful, please consider recommending and sharing it with other fellow developers and if you have any questions or suggestions, feel free to add a comment or contact me on <a class="font-medium transition-colors hover:textPurple700 dark:hover:text-yellow-700" target="_blank" href="https://www.inktok.com/">twitter.</a>
               </p>
             </div>
             <div class="pt-6 pb-8 space-y-2 md:space-y-5">
@@ -309,7 +300,7 @@
                 <span></span>
                 <div>
                   <h6>Next post</h6>
-                  <div class="font-medium text-purple-500 transition-colors dark:text-yellow-500 hover:text-purple-700 dark:hover:text-yellow-700"><a href="">Error handling in Golang</a></div>
+                  <div class="font-medium text-purple-500 transition-colors dark:text-yellow-500 hover:textPurple700 dark:hover:text-yellow-700"><a href="">Error handling in Golang</a></div>
                 </div>
               </nav>
             </div>
@@ -337,12 +328,12 @@
                 </p>
               </div>
             </footer>
+<!--            <script>smartNav('article h2');</script>-->
           </article>
         </div>
       </main>
     </div>
   </div>
 </div>
-
 </body>
 </html>

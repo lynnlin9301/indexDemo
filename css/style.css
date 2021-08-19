@@ -63,7 +63,7 @@
   height: 100vh;
 }
 
-.hover\:text-purple-700:hover, .text-purple-700 {
+.hover\:textPurple700:hover, .textPurple700 {
     --tw-text-opacity: 1;
     color: rgba(109,40,217,var(--tw-text-opacity));
 }
@@ -522,4 +522,9 @@ audio, canvas, embed, iframe, img, object, svg, video {
 }
 .theme-button-none {
   display: none;
+}
+#fiddly {
+  h1 {
+    text-transform: uppercase;
+  }
 }
