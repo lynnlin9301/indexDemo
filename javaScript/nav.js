@@ -25,6 +25,7 @@ window.onload = function () {
     h3nav.className = "block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent"; // 默认不高亮 css
     h3nav.innerHTML = ele.textContent;
     navbanner.insertAdjacentElement('beforebegin', h3nav);
+    // TODO： 这里的命名，我改了下 style.css  那边，因为 js 命名规范的原因。本来 css 那边定义的 是 text-purple-700 ，我都改成了 textPurple700。 不知道有没有什么办法能转换一下
     ele.textPurple700 = function () {
       // 对应的导航元素高亮
       h3nav.parentElement.querySelectorAll('.textPurple700').forEach(function (eleActive) {
