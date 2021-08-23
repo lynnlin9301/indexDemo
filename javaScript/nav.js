@@ -1,11 +1,12 @@
 window.onload = function () {
   let h2 = document.querySelectorAll('#__next h2');
-  console.log('h2', h2);
   let h3 = document.querySelectorAll('#__next h3');
+  let html = document.querySelectorAll('html');
+  localStorage.setItem("themes", html[0].className);
   let Observer = new IntersectionObserver(function (entries) {
     entries.reverse().forEach(function (entry) {
       if (entry.isIntersecting) {
-        entry.target.textPurple700();
+        entry.target.navActive();
       }
     });
     lastScrollTop = document.scrollingElement.scrollTop;
@@ -24,14 +25,15 @@ window.onload = function () {
     nav.className = "block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent"; // 默认不高亮 css
     nav.innerHTML = ele.textContent;
     navbanner.insertAdjacentElement('beforebegin', nav);
-    // TODO： 这里的命名，我改了下 style.css  那边，因为 js 命名规范的原因。本来 css 那边定义的 是 text-purple-700 ，我都改成了 textPurple700。 不知道有没有什么办法能转换一下
-    ele.textPurple700 = function () {
-      // 对应的导航元素高亮
-      nav.parentElement.querySelectorAll('.textPurple700').forEach(function (eleActive) {
-          ele.isActived = false;
-          eleActive.classList.remove('textPurple700');
+    
+    ele.navActive = function () {
+      // 对应的导航元素高亮，这个地方 navActive 只是起到了一个筛选的作用，没有实际的 CSS
+      console.log(nav.parentElement.querySelectorAll('.text-purple-700'));
+      nav.parentElement.querySelectorAll('.navActive').forEach(function (eleActive) {
+        ele.isActived = false;
+        eleActive.classList.remove('navActive', 'text-purple-700', 'dark:text-yellow-700');
       });
-      nav.classList.add('textPurple700');
+      nav.classList.add('navActive', 'text-purple-700', 'dark:text-yellow-700');
       ele.isActived = true;
     };
     Observer.observe(ele);
@@ -59,29 +61,30 @@ window.onload = function () {
         h3nav.className = "block mt-3 text-sm hover:text-purple-700 dark:hover:text-yellow-700 focus-visible:outline-accent ml-3"; // 默认不高亮 css
         h3nav.innerHTML = ele.textContent;
         navbanner.insertAdjacentElement('beforebegin', h3nav);
-        ele.textPurple700 = function () {
-          // 对应的导航元素高亮
-          h3nav.parentElement.querySelectorAll('.textPurple700').forEach(function (eleActive) {
-              ele.isActived = false;
-              eleActive.classList.remove('textPurple700');
+        ele.navActive = function () {
+          // 对应的导航元素高亮，这个地方 navActive 只是起到了一个筛选的作用，没有实际的 CSS
+          h3nav.parentElement.querySelectorAll('.navActive').forEach(function (eleActive) {
+            ele.isActived = false;
+            eleActive.classList.remove('navActive', 'text-purple-700', 'dark:text-yellow-700');
           });
-          h3nav.classList.add('textPurple700');
+          h3nav.classList.add('navActive', 'text-purple-700', 'dark:text-yellow-700');
           ele.isActived = true;
+          
         };
         Observer.observe(ele);
       });
     }
     
-    ele.untextPurple700 = function () {
+    ele.unnavActive = function () {
       // 对应的导航元素高亮
       if (document.scrollingElement.scrollTop > lastScrollTop) {
-          h2[index + 1] && h2[index + 1].textPurple700();
-          h3[index + 1] && h3[index + 1].textPurple700();
+          h2[index + 1] && h2[index + 1].navActive();
+          h3[index + 1] && h3[index + 1].navActive();
       } else {
-          h2[index - 1] && h2[index - 1].textPurple700();
-          h3[index - 1] && h3[index - 1].textPurple700();
+          h2[index - 1] && h2[index - 1].navActive();
+          h3[index - 1] && h3[index - 1].navActive();
       }
-      nav.classList.remove('textPurple700');
+      nav.classList.remove('navActive');
       ele.isActived = false;
     };
     

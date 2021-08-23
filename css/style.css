@@ -9,18 +9,19 @@
 }
 
 .dark .dark\:text-white {
-    --tw-text-opacity: 1;
-    color: rgba(255,255,255,var(--tw-text-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255,255,255,var(--tw-text-opacity));
 }
 
 .dark .dark\:text-yellow-500 {
-    --tw-text-opacity: 1;
-    color: rgba(245,158,11,var(--tw-text-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(245,158,11,var(--tw-text-opacity));
 }
 .dark .dark\:bg-gray-700 {
-    --tw-bg-opacity: 1;
-    background-color: rgba(55,65,81,var(--tw-bg-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(55,65,81,var(--tw-bg-opacity));
 }
+
 
 .flex {
   display: flex;
@@ -63,9 +64,31 @@
   height: 100vh;
 }
 
-.hover\:textPurple700:hover, .textPurple700 {
-    --tw-text-opacity: 1;
-    color: rgba(109,40,217,var(--tw-text-opacity));
+.hover\:text-purple-700:hover, .text-purple-700 {
+  --tw-text-opacity: 1;
+  color: rgba(109,40,217,var(--tw-text-opacity));
+}
+
+/*.hover\:navActive:hover, .navActive {*/
+/*  --tw-text-opacity: 1;*/
+/*  color: rgba(109,40,217,var(--tw-text-opacity));*/
+/*}*/
+
+.dark .dark\:text-yellow-700 {
+  --tw-text-opacity: 1;
+  color: rgba(180,83,9,var(--tw-text-opacity));
+}
+.dark .dark\:text-yellow-700 {
+  --tw-text-opacity: 1;
+  color: rgba(180,83,9,var(--tw-text-opacity));
+}
+/*.darkNavActive {*/
+/*  --tw-text-opacity: 1;*/
+/*  color: rgba(180,83,9,var(--tw-text-opacity));*/
+/*}*/
+.dark .dark\:hover\:text-yellow-700:hover, .dark .dark\:text-yellow-700 {
+  --tw-text-opacity: 1;
+  color: rgba(180,83,9,var(--tw-text-opacity));
 }
 
 .italic {
@@ -173,6 +196,11 @@
   color: #1f2937;
   /*max-width: 65ch;*/
 }
+
+.dark .dark\:prose-dark {
+  color: #f3f4f6;
+}
+
 .prose>:first-child {
   margin-top: 0;
 }
@@ -218,6 +246,9 @@
   color: #374151;
   left: 0;
 }
+.dark .dark\:prose-dark ol>li:before {
+  color: #d1d5db;
+}
 .prose pre {
   color: #e5e7eb;
   background-color: #1f2937;
@@ -234,6 +265,11 @@
   text-decoration: underline;
   font-weight: 500;
 }
+
+.dark .dark\:prose-dark a {
+  color: #f59e0b;
+}
+
 .prose blockquote {
   font-weight: 500;
   font-style: italic;
@@ -245,12 +281,20 @@
   margin-bottom: 1.6em;
   padding-left: 1em;
 }
+.dark .dark\:prose-dark blockquote {
+  color: #f3f4f6;
+  border-left-color: #e5e7eb;
+}
 
 .prose blockquote p:first-of-type:before {
   content: open-quote;
 }
 .prose blockquote p:last-of-type:after {
   content: close-quote;
+}
+
+.dark .dark\:prose-dark code, .dark .dark\:prose-dark figcaption, .dark .dark\:prose-dark h1, .dark .dark\:prose-dark h2, .dark .dark\:prose-dark h3, .dark .dark\:prose-dark h4, .dark .dark\:prose-dark h5, .dark .dark\:prose-dark h6, .dark .dark\:prose-dark strong {
+  color: #f3f4f6;
 }
 .pb-8 {
   padding-bottom: 2rem;
