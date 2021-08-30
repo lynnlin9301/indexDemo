@@ -1,5 +1,5 @@
-const setStylesSheet = () => {
-  let themes = localStorage.themes;
+setStylesSheet = function () {
+  var themes = localStorage.themes;
   console.log('themes', themes);
   if (themes === 'dark') {
     document.getElementById("themes").innerHTML = "当前白色，点击切换";
