@@ -13,7 +13,7 @@ nav = function () {
   });
   
   // 添加标题头
-  navbanner.insertAdjacentHTML('beforebegin','<h2>' + "TABLE OF CONTENTS" + '</h2>');
+  navBanner.insertAdjacentHTML('beforebegin','<h2>' + "TABLE OF CONTENTS" + '</h2>');
   
   // 生成对应标题数组
   h2.forEach(function (ele, index) {
@@ -44,7 +44,7 @@ nav = function () {
       nav.className = "" // 容错，万一都不是，className = null
     }
     nav.innerHTML = ele.textContent;
-    navbanner.insertAdjacentElement('beforebegin', nav);
+    navBanner.insertAdjacentElement('beforebegin', nav);
     ele.navActive = function () {
       nav.parentElement.querySelectorAll('.navActive').forEach(function (eleActive) {
         ele.isActived = false;
