@@ -1,8 +1,6 @@
-window.onload = function () {
-  var h2 = document.querySelectorAll('#__next h2');
+nav = function () {
+  var h2 = document.querySelectorAll('#main-page h2');
   var list = [];
-  var html = document.querySelectorAll('html');
-  localStorage.setItem("themes", html[0].className);
   var Observer = new IntersectionObserver(function (entries) {
     entries.reverse().forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -39,21 +37,20 @@ window.onload = function () {
     var nav = document.createElement('a');
     nav.href = '#' + id;
     if (ele.tagName.toLowerCase() == 'h2') {
-      nav.className = "aside-h2-list hover:text-purple-700 dark:hover:text-yellow-700"; // 默认不高亮 css
+      nav.className = "aside-h2-list";
     } else if (ele.tagName.toLowerCase() == 'h3') {
-      nav.className = "aside-h3-list hover:text-purple-700 dark:hover:text-yellow-700"; // 默认不高亮 css
+      nav.className = "aside-h3-list";
     } else {
       nav.className = "" // 容错，万一都不是，className = null
     }
     nav.innerHTML = ele.textContent;
     navbanner.insertAdjacentElement('beforebegin', nav);
     ele.navActive = function () {
-      // 对应的导航元素高亮，这个地方 navActive 只是起到了一个筛选的作用，没有实际的 CSS
       nav.parentElement.querySelectorAll('.navActive').forEach(function (eleActive) {
         ele.isActived = false;
-        eleActive.classList.remove('navActive', 'text-purple-700', 'dark:text-yellow-700');
+        eleActive.classList.remove('navActive');
       });
-      nav.classList.add('navActive', 'text-purple-700', 'dark:text-yellow-700');
+      nav.classList.add('navActive');
       ele.isActived = true;
     };
     Observer.observe(ele);
