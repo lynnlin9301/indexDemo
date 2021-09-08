@@ -17,6 +17,13 @@
   --text-ol-il: #d1d5db;
 }
 
+.main-div {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 
 .page-box {
 	width: 100%;
@@ -49,15 +56,6 @@
   font-weight: 900;
   text-decoration: none;
   font-family: Open Sans,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-}
-
-
-.main-div {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
 }
 
 .aside {
@@ -443,4 +441,27 @@ img, video {
 audio, canvas, embed, iframe, img, object, svg, video {
   display: block;
   vertical-align: middle;
+}
+
+.theme-button {
+  cursor: pointer;
+  overflow: hidden;
+  width: 24px;
+  height: 11.266px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.theme-button-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -13.8px;
+  margin-left: -7.68px;
+  width: 39.594px;
+  height: 39.594px;
 }

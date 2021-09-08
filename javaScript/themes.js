@@ -3,7 +3,14 @@ window.onload = function () {
   if (ifAsideNav != null) {
     nav();
   }
-  
+  var anim = bodymovin.loadAnimation({
+    container: document.getElementById('themes'),
+    path: 'animationData.json',
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+  });
+  anim.setSpeed(1.3);
   
   var html = document.querySelectorAll('html');
   var themes = localStorage.themes;
@@ -13,23 +20,23 @@ window.onload = function () {
   } else if (themes === 'light') {
     document.getElementById("html").className="light";
     document.documentElement.removeAttribute('theme');
+    anim.goToAndStop(2,true);
   } else if (themes === 'dark') {
     document.getElementById("html").className="dark";
     document.documentElement.setAttribute('theme', 'dark');
+    anim.goToAndStop(51,true);
   }
-  
-  
   
   setStylesSheet = function () {
     var changeThemes = localStorage.themes;
     // console.log('changethemes', changethemes);
     if (changeThemes === 'dark') {
-      document.getElementById("themes").innerHTML = "当白色，点击切换";
+      anim.playSegments([51, 96],true);
       document.getElementById("html").className="light";
       document.documentElement.removeAttribute('theme');
       localStorage.themes = "light";
     } else if (changeThemes === 'light') {
-      document.getElementById("themes").innerHTML = "当前黑色，点击切换";
+      anim.playSegments([2, 50], true);
       document.getElementById("html").className="dark";
       document.documentElement.setAttribute('theme', 'dark');
       localStorage.themes = "dark";

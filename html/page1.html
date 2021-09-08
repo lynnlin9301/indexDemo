@@ -7,6 +7,8 @@
   <link href="https://unpkg.com/prism-theme-night-owl@1.4.0/build/style.css" rel="stylesheet"/>
   <script type="text/javascript" src="../javaScript/nav.js"></script>
   <script type="text/javascript" src="../javaScript/themes.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
 </head>
 <body>
 <div id="main-page">
@@ -18,7 +20,13 @@
             <a class="home-link">Praveen Yadav's Blog</a>
           </h1>
         </div>
-        <button id="themes" onclick="setStylesSheet()">点击切换</button>
+        <button
+          class="theme-button"
+          onclick="setStylesSheet()"
+        >
+          <div id="themes" class="theme-button-div"></div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js" integrity="sha512-srGxQe2w7s50+5/nNgEVKYtBm15zRylJwdjxYnGEZr3mmHFJKFjA/ImA2OKizVzoIDX8XISMHDI1+az9pnumbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        </button>
       </header>
       <main>
         <div class="main-div">
