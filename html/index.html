@@ -59,6 +59,104 @@
           </section>
         </article>
       </main>
+<!--      没有省略号3种，没有省略号出现于页数 <= 9-->
+<!--        1. cur = 1 ，没有上一页-->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item-active"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item"><a class="page-link">2</a></li>-->
+<!--          <li class="page-item"><a class="page-link">3</a></li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item"><a class="page-link">5</a></li>-->
+<!--          <li class="page-item"><a class="page-link">></a></li>-->
+<!--        </ul>-->
+<!--        2. cur = max ，没有下一页-->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item"><a class="page-link"><</a></li>-->
+<!--          <li class="page-item"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item"><a class="page-link">2</a></li>-->
+<!--          <li class="page-item"><a class="page-link">3</a></li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item-active"><a class="page-link">5</a></li>-->
+<!--        </ul>-->
+<!--        3. cur != (1 || max) ，有上下页-->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item"><a class="page-link"><</a></li>-->
+<!--          <li class="page-item"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item-active"><a class="page-link">2</a></li>-->
+<!--          <li class="page-item"><a class="page-link">3</a></li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item"><a class="page-link">5</a></li>-->
+<!--          <li class="page-item"><a class="page-link">></a></li>-->
+<!--        </ul>-->
+<!--      有省略号5种，页数 ＞ 9 -->
+<!--        1. cur = 1 没有上一页，省略号在 max 侧-->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item-active"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item"><a class="page-link">2</a></li>-->
+<!--          <li class="page-item"><a class="page-link">3</a></li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item"><a class="page-link">5</a></li>-->
+<!--          <li class="page-item"><a class="page-link">6</a></li>-->
+<!--          <li class="page-item"><a class="page-link">7</a></li>-->
+<!--          <li class="page-item">...</li>-->
+<!--          <li class="page-item"><a class="page-link">10</a></li>-->
+<!--          <li class="page-item"><a class="page-link">></a></li>-->
+<!--        </ul>-->
+<!--        2. current = max , 没有下一页，省略号在 1 侧-->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item"><a class="page-link"><</a></li>-->
+<!--          <li class="page-item"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item">...</li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item"><a class="page-link">5</a></li>-->
+<!--          <li class="page-item"><a class="page-link">6</a></li>-->
+<!--          <li class="page-item"><a class="page-link">7</a></li>-->
+<!--          <li class="page-item"><a class="page-link">8</a></li>-->
+<!--          <li class="page-item"><a class="page-link">9</a></li>-->
+<!--          <li class="page-item-active"><a class="page-link">10</a></li>-->
+<!--        </ul>-->
+<!--        3. cur > max - 5 (2 - 2 -1) , 有上下页，且省略号靠近 1 侧-->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item"><a class="page-link"><</a></li>-->
+<!--          <li class="page-item"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item-active"><a class="page-link">2</a></li>-->
+<!--          <li class="page-item"><a class="page-link">3</a></li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item"><a class="page-link">5</a></li>-->
+<!--          <li class="page-item"><a class="page-link">6</a></li>-->
+<!--          <li class="page-item"><a class="page-link">7</a></li>-->
+<!--          <li class="page-item">...</li>-->
+<!--          <li class="page-item"><a class="page-link">10</a></li>-->
+<!--          <li class="page-item"><a class="page-link">></a></li>-->
+<!--        </ul>-->
+<!--        4. 1 < cur  < 6 (1 + 2 + 2+ 1)  , 有上下页，省略号在 max 侧-->
+        <ul class="pagination-container">
+          <li class="page-item"><a class="page-link"><</a></li>
+          <li class="page-item"><a class="page-link">1</a></li>
+          <li class="page-item">...</li>
+          <li class="page-item"><a class="page-link">4</a></li>
+          <li class="page-item"><a class="page-link">5</a></li>
+          <li class="page-item"><a class="page-link">6</a></li>
+          <li class="page-item"><a class="page-link">7</a></li>
+          <li class="page-item-active"><a class="page-link">8</a></li>
+          <li class="page-item"><a class="page-link">9</a></li>
+          <li class="page-item"><a class="page-link">10</a></li>
+          <li class="page-item"><a class="page-link">></a></li>
+        </ul>
+<!--        5. cur >= 6 & cur =< max - 5  ，有上下页，省略号在两侧 -->
+<!--        <ul class="pagination-container">-->
+<!--          <li class="page-item"><a class="page-link"><</a></li>-->
+<!--          <li class="page-item"><a class="page-link">1</a></li>-->
+<!--          <li class="page-item">...</li>-->
+<!--          <li class="page-item"><a class="page-link">4</a></li>-->
+<!--          <li class="page-item"><a class="page-link">5</a></li>-->
+<!--          <li class="page-item-active"><a class="page-link">6</a></li>-->
+<!--          <li class="page-item"><a class="page-link">7</a></li>-->
+<!--          <li class="page-item"><a class="page-link">8</a></li>-->
+<!--          <li class="page-item">...</li>-->
+<!--          <li class="page-item"><a class="page-link">11</a></li>-->
+<!--          <li class="page-item"><a class="page-link">></a></li>-->
+<!--        </ul>-->
     </div>
   </div>
 </div>

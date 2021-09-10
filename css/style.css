@@ -465,3 +465,42 @@ audio, canvas, embed, iframe, img, object, svg, video {
   width: 39.594px;
   height: 39.594px;
 }
+
+.pagination-container {
+  text-align: center;
+  margin-top: -1rem;
+}
+.page-item {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+
+.page-item-active {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background-color: var(--text-a);
+}
+
+.page-item a:hover{
+  background-color: var(--text-a-hover);
+  color: #fff;
+}
+
+.page-link {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 10px;
+  min-width: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 2px;
+  font-family: SF UI Text,Helvetica Neue,Helvetica,Ubuntu,Arial,X-LocaleSpecific-Sans,DroidSansFallbackFull,sans-serif
+}
+
+
+
+
