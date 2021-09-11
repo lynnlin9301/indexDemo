@@ -25,7 +25,7 @@ window.onload = function () {
       document.documentElement.setAttribute('themes', 'light');
       localStorage.themes = "light";
     } else if (localStorage.themes === 'light') {
-      anim.playSegments([1, 50], true);
+      anim.playSegments([2, 50], true);
       document.documentElement.setAttribute('themes', 'dark');
       localStorage.themes = "dark";
     } else {
