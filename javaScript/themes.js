@@ -12,33 +12,21 @@ window.onload = function () {
   });
   anim.setSpeed(1.3);
   
-  var html = document.querySelectorAll('html');
-  var themes = localStorage.themes;
-  console.log('themes', themes);
-  if (themes === undefined) {
-    localStorage.setItem("themes", html[0].className);
-  } else if (themes === 'light') {
-    document.getElementById("html").className="light";
-    document.documentElement.removeAttribute('theme');
+  if (localStorage.themes === 'light') {
     anim.goToAndStop(2,true);
-  } else if (themes === 'dark') {
-    document.getElementById("html").className="dark";
-    document.documentElement.setAttribute('theme', 'dark');
+  }
+   else if (localStorage.themes === 'dark') {
     anim.goToAndStop(51,true);
   }
   
   setStylesSheet = function () {
-    var changeThemes = localStorage.themes;
-    // console.log('changethemes', changethemes);
-    if (changeThemes === 'dark') {
+    if (localStorage.themes === 'dark') {
       anim.playSegments([51, 96],true);
-      document.getElementById("html").className="light";
-      document.documentElement.removeAttribute('theme');
+      document.documentElement.setAttribute('themes', 'light');
       localStorage.themes = "light";
-    } else if (changeThemes === 'light') {
-      anim.playSegments([2, 50], true);
-      document.getElementById("html").className="dark";
-      document.documentElement.setAttribute('theme', 'dark');
+    } else if (localStorage.themes === 'light') {
+      anim.playSegments([1, 50], true);
+      document.documentElement.setAttribute('themes', 'dark');
       localStorage.themes = "dark";
     } else {
       alert("主题加载出错，请刷新！")

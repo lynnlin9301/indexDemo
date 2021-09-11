@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh" id="html" class="light">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
   <title>demo-index</title>
+  <script>
+  // Render blocking JS:
+  if (localStorage.themes) {
+    document.documentElement.setAttribute('themes', localStorage.themes);
+  } else {
+    document.documentElement.setAttribute('themes', 'light');
+    localStorage.themes = "light";
+  }
+  </script>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <script type="text/javascript" src="../javaScript/themes.js"></script>
   <meta charset="utf-8">
