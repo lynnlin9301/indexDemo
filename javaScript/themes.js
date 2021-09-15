@@ -32,4 +32,18 @@ window.onload = function () {
       alert("主题加载出错，请刷新！")
     }
   };
+  searchInput = function () {
+    var searchInput = document.getElementById('search-input');
+    if (searchInput.className === 'search-input-none') {
+      searchInput.className="search-input"
+    } else if (searchInput.className === 'search-input') {
+      searchInput.className="search-input-none"
+    }
+  }
+  enterSearch = function () {
+    var keyEvent = window.event || arguments.callee.caller.arguments[0];
+    if (keyEvent.keyCode === 13) {
+      alert("跳转搜索");
+    }
+  }
 }

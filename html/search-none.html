@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>demo-index</title>
+  <script>
+  // Render blocking JS:
+  if (localStorage.themes) {
+    document.documentElement.setAttribute('themes', localStorage.themes);
+  } else {
+    document.documentElement.setAttribute('themes', 'light');
+    localStorage.themes = "light";
+  }
+  </script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script type="text/javascript" src="../javaScript/themes.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+</head>
+<body>
+<div id="main-page">
+  <div class="page-box">
+    <div class="page">
+      <header class="header">
+        <div class="header">
+          <h1>
+            <a class="home-link">Praveen Yadav's Blog</a>
+          </h1>
+        </div>
+        <div class="header-sider">
+          <button
+            class="search-box-button-index"
+            onclick="searchInput()"
+          >
+            <svg width="25" height="25" viewBox="0 0 25 25" class="search-box">
+              <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
+            </svg>
+          </button>
+          <input
+            id="search-input"
+            class="search-input-none"
+            placeholder="搜索内容"
+            value=""
+            onkeyup="enterSearch()"
+          >
+          <button
+          class="theme-button-index"
+          onclick="setStylesSheet()"
+        >
+          <div id="themes" class="theme-button-div-index"></div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js" integrity="sha512-srGxQe2w7s50+5/nNgEVKYtBm15zRylJwdjxYnGEZr3mmHFJKFjA/ImA2OKizVzoIDX8XISMHDI1+az9pnumbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        </button>
+        </div>
+
+      </header>
+      <main>
+        <input
+          type="search"
+          value=""
+          placeholder=""
+          class="search-input-none-h1"
+          onkeyup="enterSearch()"
+        >
+        <h1 class="article-h1-index">没有搜索到内容</h1>
+      </main>
+    </div>
+  </div>
+</div>
+</body>
+</html>
