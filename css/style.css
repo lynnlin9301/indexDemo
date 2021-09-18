@@ -494,7 +494,17 @@ input::-moz-placeholder {
   fill: var(--search-svg);
 }
 .search-input-none {
-  display: none;
+  cursor: pointer;
+  overflow: hidden;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  height: 0;
+  width: 0;
+  transition: width 150ms ease-in;
 }
 .search-input-none-h1 {
   border: 0;
@@ -524,7 +534,9 @@ input::-moz-placeholder {
   padding: 0;
   margin-right: 28px;
   height: 33px;
+  width: 8rem;
   color: var(--text);
+  transition: width 150ms ease-in;
 }
 
 .theme-button-page {

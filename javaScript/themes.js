@@ -35,7 +35,8 @@ window.onload = function () {
   searchInput = function () {
     var searchInput = document.getElementById('search-input');
     if (searchInput.className === 'search-input-none') {
-      searchInput.className="search-input"
+      searchInput.className="search-input";
+      document.getElementById('search-input').focus();
     } else if (searchInput.className === 'search-input') {
       searchInput.className="search-input-none"
     }
