@@ -2,6 +2,7 @@ window.onload = function () {
   var ifAsideNav = document.getElementById('navBanner');
   if (ifAsideNav != null) {
     nav();
+    snippet();
   }
   var anim = bodymovin.loadAnimation({
     container: document.getElementById('themes'),
